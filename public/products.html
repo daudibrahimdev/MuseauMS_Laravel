@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museau MS</title>
+
+    <!-- fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- my style -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Alpine JS -->
+     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+     <!-- app -->
+      <script src="src/app.js "></script>
+
+
+      <style>
+        .hero {
+            background-image: url('../img/dark.jpg');
+        }
+
+        .hero .mask-container {
+            -webkit-mask-image: url('../img/dark.svg');
+            }
+      </style>
+  </head>
+  <body>
+    <!-- navbar start -->
+    <nav class="navbar">
+      <a href="home" class="navbar-logo">Museau <span>MS</span></a>
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Collections</a>
+        <a href="reference.html">Reference</a>
+        <a href="attribution.html">Attribution</a>
+      </div>
+
+      
+
+      <div class="navbar-extra">
+        <a href="#" id="search-button"><i data-feather="search"></i></a>
+        <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+
+      <!-- search form start -->
+       <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box"><i data-feather="search"></i></label>
+       </div>
+
+
+       <!-- search form end -->
+
+       <!-- shopping cart start -->
+        <div class="shopping-cart">
+          <div class="cart-item">
+            <img src="img/menu/1.jpg" alt="">
+            <div class="item-detail">
+              <h3>Product</h3>
+              <div class="item-price">IDR 2000k</div>
+              <i data-feather="trash-2" class="remove-item"></i>
+            </div>
+          </div>
+          <div class="cart-item">
+            <img src="img/menu/1.jpg" alt="">
+            <div class="item-detail">
+              <h3>Product</h3>
+              <div class="item-price">IDR 2000k</div>
+              <i data-feather="trash-2" class="remove-item"></i>
+            </div>
+          </div>
+        </div>
+
+        
+        
+        
+       <!-- shopping cart ends -->
+    </nav>
+    <!-- navbar ends -->
+
+    <!-- Hero section starts -->
+     <section class="hero" id="home">
+      <div class="mask-container">
+
+      
+      <main class="content">
+        <h1>Colle<span>ction.</span></h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+
+      </main>
+      </div>
+     </section>
+
+    <!-- Hero section ends -->
+
+     <!-- menu section start -->
+      <section id="menu" class="menu">
+        <h2><span>Presence </span>here follows restraint.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga dolore architecto officiis, iure harum molestias?</p>
+
+        <div class="row">
+        <div class="menu-card">
+          <img src="img/menu/1.jpg" alt="" class="menu-card-img">
+          <h3 class="menu-card-title">The Monalisa</h3>
+          <p class="menu-card-price">IDR 16,8 Billion</p>
+
+          <div class="menu-card-buttons">
+            <a href="#" class="btn-info"><i data-feather="eye"></i> Detail</a>
+            <a href="#" class="btn-cart"><i data-feather="shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="img/menu/2.jpg" alt="" class="menu-card-img">
+          <h3 class="menu-card-title">The Monalisa</h3>
+          <p class="menu-card-price">IDR 16,8 Billion</p>
+
+          <div class="menu-card-buttons">
+            <a href="#" class="btn-info"><i data-feather="eye"></i> Detail</a>
+            <a href="#" class="btn-cart"><i data-feather="shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="img/menu/3.jpg" alt="" class="menu-card-img">
+          <h3 class="menu-card-title">The Monalisa</h3>
+          <p class="menu-card-price">IDR 16,8 Billion</p>
+
+          <div class="menu-card-buttons">
+            <a href="#" class="btn-info"><i data-feather="eye"></i> Detail</a>
+            <a href="#" class="btn-cart"><i data-feather="shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="img/menu/4.jpg" alt="" class="menu-card-img">
+          <h3 class="menu-card-title">The Monalisa</h3>
+          <p class="menu-card-price">IDR 16,8 Billion</p>
+
+          <div class="menu-card-buttons">
+            <a href="#" class="btn-info"><i data-feather="eye"></i> Detail</a>
+            <a href="#" class="btn-cart"><i data-feather="shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="img/menu/5.jpg" alt="" class="menu-card-img">
+          <h3 class="menu-card-title">The Monalisa</h3>
+          <p class="menu-card-price">IDR 16,8 Billion</p>
+
+          <div class="menu-card-buttons">
+            <a href="#" class="btn-info"><i data-feather="eye"></i> Detail</a>
+            <a href="#" class="btn-cart"><i data-feather="shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <!-- menu section ends -->
+
+      <!-- footer starts -->
+       <footer>
+        <div class="socials">
+          <a href=""><i data-feather="instagram"></i></a>
+          <a href=""><i data-feather="linkedin"></i></a>
+        </div>
+
+        <div class="links">
+          <a href="#home">home</a>
+          <a href="#about">About us</a>
+          <a href="#menu">Collections</a>
+          <a href="#home">Contact</a>
+        </div>
+
+        <div class="credit">
+          <p>Created by <a href="">Daud Ibrahim</a>. | &copy; 2025.</p>
+        </div>
+       </footer>
+
+      <!-- footer ends -->
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- My Javascript -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
