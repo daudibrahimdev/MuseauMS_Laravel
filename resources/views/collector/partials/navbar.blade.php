@@ -2,9 +2,9 @@
     <nav class="navbar">
       <a href="home" class="navbar-logo">Museau <span>MS</span></a>
       <div class="navbar-nav">
-        <a href="index.html">Home</a>
+        <a href="{{ route('collector.home') }}">Home</a>
         <a href="about.html">About Us</a>
-        <a href="products.html">Collections</a>
+        <a href="{{ route('collection.index') }}">Collections</a>
         <a href="reference.html">Reference</a>
         <a href="attribution.html">Attribution</a>
       </div>
