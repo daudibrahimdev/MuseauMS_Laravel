@@ -20,8 +20,8 @@
                 <span class="badge-count">{{ $stats['pending_orders'] ?? 0 }}</span>
             </a>
         </li>
-        <li>
-            <a href="#">
+        <li class="{{ request()->routeIs('curator.artworks.*') ? 'active' : '' }}">
+            <a href="{{ route('curator.artworks.index') }}">
                 <i data-feather="package"></i>
                 <span>Products</span>
             </a>

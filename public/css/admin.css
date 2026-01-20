@@ -324,6 +324,48 @@ tbody tr:hover {
     position: relative;
 }
 
+/* fix bug design pagination admin */
+/* Global Reset for Professional Look */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Fix for Pagination Bug*/
+.pagination {
+    display: flex !important;
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+    gap: 5px;
+}
+
+.page-item {
+    list-style: none !important;
+}
+
+button {
+    font-family: inherit;
+}
+
+.custom-pagination nav > div:first-child {
+    display: none !important;
+}
+
+/* Pastikan elemen navigasi rata kanan */
+.custom-pagination nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Hilangkan titik/bullet pada list pagination */
+.pagination, .pagination li {
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+    display: flex !important;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
   .recent-grid {

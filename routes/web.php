@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Collector\CollectorController;
 use App\Http\Controllers\Curator\CuratorController;
 use App\Http\Controllers\Curator\OrderController;
+use App\Http\Controllers\Curator\ArtworkController;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -54,5 +55,8 @@ Route::middleware([
         Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
         Route::post('/orders/{id}/verify', [OrderController::class, 'verifyPayment'])->name('orders.verify');
         Route::post('/orders/{id}/shipment', [OrderController::class, 'updateShipment'])->name('orders.updateShipment');
+
+        // CRUD Artwork
+        Route::resource('artworks', ArtworkController::class);
     });
 });
