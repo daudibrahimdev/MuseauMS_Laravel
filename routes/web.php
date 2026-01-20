@@ -2,27 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Collector\CollectorController;
+use App\Http\Controllers\Curator\CuratorController;
+use App\Http\Controllers\Curator\OrderController;
 
+
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
-| Public Routes (Bisa diakses tanpa login)
+| Public Routes
 |--------------------------------------------------------------------------
 */
 
 Route::controller(CollectorController::class)->group(function () {
-    // Halaman Home/Landing Page
     Route::get('/', 'index')->name('collector.home');
-
-    // Halaman Gallery/Koleksi (Daftar 50+ karya seni)
     Route::get('/collections', 'collection')->name('collection.index');
-
-    // Halaman Detail Lukisan (Berdasarkan Slug)
     Route::get('/collections/{slug}', 'show')->name('collector.collections.show');
 });
 
 /*
 |--------------------------------------------------------------------------
-| Protected Routes (Wajib Login)
+| Protected Routes (Auth Required)
 |--------------------------------------------------------------------------
 */
 
@@ -32,18 +31,28 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
+    Route::get('/dashboard', function () {
+        if (Auth::user()->role === 'curator') {
+            return redirect()->route('curator.dashboard');
+        }
+        return redirect()->route('collector.dashboard');
+    })->name('dashboard');
+
     // Grouping untuk aktor Collector
     Route::prefix('collector')->name('collector.')->group(function () {
-        // Dashboard Pribadi Collector
         Route::get('/dashboard', [CollectorController::class, 'index'])->name('dashboard');
         
-        // Lu bisa tambah route seperti 'my-orders' di sini nanti sesuai diagram
+        // route lain
     });
 
-    // Grouping untuk aktor Curator (Admin)
+    // Grouping untuk aktor Curator 
     Route::prefix('curator')->name('curator.')->group(function () {
-        Route::get('/dashboard', function () {
-            return view('curator.dashboard.index');
-        })->name('dashboard');
+        Route::get('/dashboard', [CuratorController::class, 'index'])->name('dashboard');
+
+        // order page
+        Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+        Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+        Route::post('/orders/{id}/verify', [OrderController::class, 'verifyPayment'])->name('orders.verify');
+        Route::post('/orders/{id}/shipment', [OrderController::class, 'updateShipment'])->name('orders.updateShipment');
     });
 });

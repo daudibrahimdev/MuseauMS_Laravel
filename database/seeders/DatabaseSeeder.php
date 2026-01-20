@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             ArtistSeeder::class,
             CategorySeeder::class,
             ArtworkSeeder::class,
+            OrderSeeder::class,
         ]);
     }
 }

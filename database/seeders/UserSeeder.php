@@ -13,21 +13,28 @@ class UserSeeder extends Seeder
     public function run(): void {
         \App\Models\User::create([
             'name' => 'Daud Ibrahim',
-            'email' => 'daud@museaums.com',
+            'email' => 'daud@gmail.com',
             'password' => bcrypt('password'),
             'role' => 'curator',
         ]);
         \App\Models\User::create([
             'name' => 'Collector One',
-            'email' => 'collector1@mail.com',
+            'email' => 'collector@gmail.com',
+            'password' => bcrypt('password'),
+            'role' => 'collector',
+            'address' => 'Jl Bikini Bottom asem 2'
+        ]);
+        \App\Models\User::create([
+            'name' => 'Collector Two',
+            'email' => 'collector2@gmail.com',
             'password' => bcrypt('password'),
             'role' => 'collector',
         ]);
         \App\Models\User::create([
-            'name' => 'Collector Two',
-            'email' => 'collector2@mail.com',
+            'name' => 'Curator',
+            'email' => 'curator@gmail.com',
             'password' => bcrypt('password'),
-            'role' => 'collector',
+            'role' => 'curator',
         ]);
     }
 }
