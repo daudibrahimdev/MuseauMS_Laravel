@@ -173,6 +173,89 @@ body {
   color: var(--primary)
 }
 
+/* --- USER DROPDOWN STYLE --- */
+
+.user-profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-profile-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  width: 20rem;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: none;
+  z-index: 1000;
+  margin-top: 1rem;
+  animation: slideDown 0.3s ease;
+}
+
+/* Teknik Invisible Bridge */
+.user-profile-dropdown .dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -1.5rem;
+  right: 0;
+  width: 100%;
+  height: 2rem;
+  background: transparent;
+}
+
+.user-profile-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.user-profile-dropdown .dropdown-menu a {
+  color: var(--bg) !important;
+  display: flex !important;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem !important;
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  margin: 0 !important;
+  transition: 0.2s;
+}
+
+.user-profile-dropdown .dropdown-menu a:hover {
+  background-color: #f1f1f1;
+  color: var(--primary) !important;
+}
+
+.user-profile-dropdown .dropdown-menu hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 0.5rem 0;
+}
+
+.user-profile-dropdown .dropdown-menu i {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.user-profile-dropdown .logout-link {
+  color: #d63031 !important; 
+}
+
+
+
+/* Animasi simpel */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
 

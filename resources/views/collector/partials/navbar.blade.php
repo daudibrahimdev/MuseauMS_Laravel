@@ -14,25 +14,33 @@
       <div class="navbar-extra">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
         <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+
+        @auth
+          <div class="user-profile-dropdown">
+                <a href="#" id="user-button"><i data-feather="user"></i></a>
+                
+                <div class="dropdown-menu">
+                    <a href="{{ route('profile.show') }}"><i data-feather="settings"></i> Profile Settings</a>
+                    
+                    @if(Auth::user()->role === 'curator')
+                        <a href="{{ route('admin.dashboard') }}"><i data-feather="layout"></i> Curator Panel</a>
+                    @endif
+                    
+                    <hr>
+                    
+                    <form method="POST" action="{{ route('logout') }}" id="logout-form">
+                        @csrf
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="logout-link">
+                            <i data-feather="log-out"></i> Logout
+                        </a>
+                    </form>
+                </div>
+            </div>
+            @else
+            <a href="{{ route('login') }}" title="Login"><i data-feather="log-in"></i></a>
+        @endauth
+
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-
-        {{-- Logic Auth Start --}}
-    @auth
-        <a href="{{ route('profile.show') }}" title="Profile">
-            <i data-feather="user"></i>
-        </a>
-
-        <form method="POST" action="{{ route('logout') }}" id="logout-form" style="display: none;">
-            @csrf
-        </form>
-        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Logout">
-            <i data-feather="log-out"></i>
-        </a>
-    @endauth
-    {{-- Logic Auth End --}}
-
-    <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-</div>
       </div>
 
       <!-- search form start -->

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
 
             // TAMBAHAN
-            $table->enum('role', ['currator', 'collector'])->default('collector');
+            $table->enum('role', ['curator', 'collector'])->default('collector');
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
             // --------
