@@ -5,6 +5,8 @@ use App\Http\Controllers\Collector\CollectorController;
 use App\Http\Controllers\Curator\CuratorController;
 use App\Http\Controllers\Curator\OrderController;
 use App\Http\Controllers\Curator\ArtworkController;
+use App\Http\Controllers\Curator\CategoryController;
+use App\Http\Controllers\Curator\ArtistController;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -60,5 +62,7 @@ Route::middleware([
         Route::resource('artworks', ArtworkController::class);
         // CRUD Category
         Route::resource('categories', CategoryController::class);
+        // CRUD Artist
+        Route::resource('artists', ArtistController::class);
     });
 });
