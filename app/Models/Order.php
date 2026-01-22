@@ -10,7 +10,8 @@ class Order extends Model
     'user_id', 
     'total_price', 
     'payment_status', 
-    'snap_token'
+    'snap_token',
+    'payment_proof',
     ];
 
     public function items() { 

@@ -8,6 +8,8 @@ use App\Http\Controllers\Curator\ArtworkController;
 use App\Http\Controllers\Curator\CategoryController;
 use App\Http\Controllers\Curator\ArtistController;
 use App\Http\Controllers\Collector\CatalogController;
+use App\Http\Controllers\Collector\CartController;
+use App\Http\Controllers\Collector\CheckoutController;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +56,12 @@ Route::middleware([
         Route::post('/cart/add/{id}', [App\Http\Controllers\Collector\CartController::class, 'add'])->name('cart.add');
         Route::delete('/cart/remove/{id}', [App\Http\Controllers\Collector\CartController::class, 'remove'])->name('cart.remove');
         Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+        // checkout
+        Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+        Route::post('/checkout/process', [CheckoutController::class, 'store'])->name('checkout.store');
+        Route::get('/checkout/success/{id}', [CheckoutController::class, 'success'])->name('checkout.success');
+        Route::post('/orders/{id}/upload-proof', [CheckoutController::class, 'uploadProof'])->name('orders.upload-proof');
+        Route::get('/my-acquisitions', [CheckoutController::class, 'myOrders'])->name('orders.index');
         // other routes
     });
 

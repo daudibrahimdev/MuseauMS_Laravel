@@ -6,7 +6,7 @@
         <a href="about.html">About Us</a>
         <a href="{{ route('catalog.index') }}">Collections</a>
         <a href="reference.html">Reference</a>
-        <a href="attribution.html">Attribution</a>
+        <a href="{{ route('collector.orders.index') }}">My Acquisitions</a>
       </div>
 
       
