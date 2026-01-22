@@ -13,15 +13,7 @@
 
       <div class="navbar-extra">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
-        <a href="{{ route('collector.cart.index') }}" id="shopping-cart-button">
-            <i data-feather="shopping-cart"></i>
-            {{-- Opsional: Tambahkan badge jumlah item jika ingin pamer --}}
-            @if(session('cart') && count(session('cart')) > 0)
-                <span class="cart-badge" style="background: var(--primary); color: #000; font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; position: absolute; top: 15px;">
-                    {{ count(session('cart')) }}
-                </span>
-            @endif
-        </a>
+        <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
 
         @auth
           <div class="user-profile-dropdown">
@@ -61,7 +53,7 @@
        <!-- search form end -->
 
        <!-- shopping cart start -->
-        {{-- <div class="shopping-cart">
+        <div class="shopping-cart">
           <div class="cart-item">
             <img src="img/menu/1.jpg" alt="">
             <div class="item-detail">
@@ -78,7 +70,7 @@
               <i data-feather="trash-2" class="remove-item"></i>
             </div>
           </div>
-        </div> --}}
+        </div>
 
         
         

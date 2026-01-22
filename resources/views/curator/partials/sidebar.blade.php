@@ -58,8 +58,9 @@
         <div class="menu-section system-section">
             <ul class="sidebar-menu">
                 <li>
+                    {{-- Form Logout dengan CSRF Token --}}
                     <form method="POST" action="{{ route('logout') }}" id="logout-form">
-                        @csrf
+                        @csrf {{-- WAJIB: Token ini yang mencegah error 419 --}}
                         <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="logout-link">
                             <div class="icon-box"><i data-feather="log-out"></i></div>
                             <span>Exit System</span>

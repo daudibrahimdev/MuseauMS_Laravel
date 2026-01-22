@@ -17,12 +17,11 @@ use Illuminate\Support\Facades\Auth;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', [CollectorController::class, 'index'])->name('collector.home');
-
-// Katalog dipindah ke sini agar bisa diakses tanpa login (Guest)
-// Sesuai fungsi viewCatalog() di Class Diagram
-Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
-Route::get('/catalog/{slug}', [CatalogController::class, 'show'])->name('catalog.show');
+Route::controller(CollectorController::class)->group(function () {
+    Route::get('/', 'index')->name('collector.home');
+    Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
+    Route::get('/catalog/{slug}', [CatalogController::class, 'show'])->name('catalog.show');
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -47,14 +46,7 @@ Route::middleware([
     Route::prefix('collector')->name('collector.')->group(function () {
         Route::get('/dashboard', [CollectorController::class, 'index'])->name('dashboard');
         
-        // --- Transaksi Collector (Wajib Login) ---
-        // Masukkan route beli/keranjang di sini nanti
-        // cart page
-        Route::get('/cart', [App\Http\Controllers\Collector\CartController::class, 'index'])->name('cart.index');
-        Route::post('/cart/add/{id}', [App\Http\Controllers\Collector\CartController::class, 'add'])->name('cart.add');
-        Route::delete('/cart/remove/{id}', [App\Http\Controllers\Collector\CartController::class, 'remove'])->name('cart.remove');
-        Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
-        // other routes
+        // route lain
     });
 
     // Grouping untuk aktor Curator 

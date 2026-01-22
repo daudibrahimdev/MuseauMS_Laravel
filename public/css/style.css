@@ -265,7 +265,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url('../img/thethinker.png');
+  /* background-image: url('../img/thethinker.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -287,15 +287,14 @@ body {
   background: linear-gradient(0deg, rgba(1,1,3,1)8%, rgba(255,255,255,0)50%);
 } */
  
-.hero .mask-container {
+/* .hero .mask-container {
   position: absolute;
-  /* background: salmon; */
   inset: 0;
   -webkit-mask-image: url('../img/thethinker.svg');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: cover;
   -webkit-mask-position: center;
-}
+} */
 
 .hero .content {
   padding: 1.4rem 7%;
@@ -418,7 +417,8 @@ body {
 .menu .row .menu-card img {
   border-radius: 1%;
   width: 100%;
-  height: 30rem;
+  height: 25rem;
+  object-fit: cover;
   object-position: center;
   padding: 1rem;
 }
@@ -556,6 +556,77 @@ body {
 .action-buttons .cta:hover {
   background-color: #513c28; 
   transform: translateY(-3px); 
+}
+
+/* fix bug container */
+/* Container Utama */
+.pagination-container {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* 1. SEMBUNYIKAN teks "Showing 1 to 12 of 50 results" yang bikin tumpang tindih */
+.pagination-container nav > div:first-child {
+    display: none !important;
+}
+
+/* 2. Style navigasi angka agar sejajar horizontal */
+.pagination-container nav > div:last-child,
+.pagination-container .pagination {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 8px;
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+/* 3. Style Kotak Angka (Page Item) */
+.pagination-container .page-item {
+    list-style: none !important;
+}
+
+.pagination-container .page-link,
+.pagination-container span[aria-current="page"] > span,
+.pagination-container a[rel="next"],
+.pagination-container a[rel="prev"] {
+    background-color: #111 !important;
+    border: 1px solid #333 !important;
+    color: #fff !important;
+    padding: 10px 18px !important;
+    border-radius: 6px !important;
+    font-size: 0.9rem !important;
+    text-decoration: none !important;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 4. Warna saat Aktif (Halaman yang sedang dibuka) */
+.pagination-container .active span,
+.pagination-container span[aria-current="page"] > span {
+    background-color: var(--primary) !important; /* Warna emas lu */
+    border-color: var(--primary) !important;
+    color: #000 !important;
+    font-weight: 700;
+}
+
+/* 5. Hover Effect */
+.pagination-container .page-link:hover {
+    background-color: #222 !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+}
+
+/* 6. Hilangkan SVG bawaan Laravel yang bikin gambar rusak */
+.pagination-container svg {
+    width: 20px !important;
+    height: 20px !important;
 }
 
 /* footer */
