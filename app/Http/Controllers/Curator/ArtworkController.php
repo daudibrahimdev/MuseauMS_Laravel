@@ -111,18 +111,43 @@ class ArtworkController extends Controller
     public function update(Request $request, $id)
     {
         $artwork = Artwork::findOrFail($id);
+
+        // 1. Validasi
+        $request->validate([
+            'title' => 'required|max:255',
+            'artist_id' => 'required',
+            'category_id' => 'required',
+            'price' => 'required|numeric',
+            'description' => 'required',
+            'year_created' => 'required|integer|min:1000|max:'.date('Y'),
+            'medium' => 'required',
+            'status' => 'required',
+            'dimensions' => 'required|max:100',
+            'image_url' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Nullable karena gambar tidak wajib diganti
+        ], [
+            'medium.required' => 'Please provide the medium used.',
+            'dimensions.required' => 'Physical dimensions are required.',
+        ]);
+
         $data = $request->all();
 
+        // 2. Logic Checkbox is_featured
+        $data['is_featured'] = $request->has('is_featured') ? true : false;
+
+        // 3. Logic Penggantian Gambar
         if ($request->hasFile('image_url')) {
-            // Hapus gambar lama jika ada
+            // Hapus gambar lama dari storage public 
             if ($artwork->image_url) {
                 Storage::disk('public')->delete($artwork->image_url);
             }
+            // simpen
             $data['image_url'] = $request->file('image_url')->store('artworks', 'public');
         }
 
+        // 4. Eksekusi Update
         $artwork->update($data);
-        return redirect()->route('curator.artworks.index')->with('success', 'Artwork updated!');
+
+        return redirect()->route('curator.artworks.index')->with('success', 'Masterpiece successfully refined!');
     }
 
     /**

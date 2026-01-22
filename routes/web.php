@@ -58,5 +58,7 @@ Route::middleware([
 
         // CRUD Artwork
         Route::resource('artworks', ArtworkController::class);
+        // CRUD Category
+        Route::resource('categories', CategoryController::class);
     });
 });
